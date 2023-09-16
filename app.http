@@ -1,2 +1,2 @@
 ###
-GET
+GET https://omatz-test-python.azurewebsites.net
