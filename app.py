@@ -1,10 +1,9 @@
-from flask import Flask
+import azure.functions as func
+import logging
 
-app = Flask(__name__)
+app = func.FunctionApp()
 
-@app.route('/')
-def hello():
-    return 'Hello, Flask!'
-
-if __name__ == '__main__':
-    app.run()
+@app.function_name(name="HttpExample")
+@app.route(route="hello")
+def test_function(req: func.HttpRequest) -> func.HttpResponse:
+    return func.HttpResponse("HttpExample function processed a request!")
